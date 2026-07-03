@@ -1,9 +1,5 @@
-# Omarchy
+# Anarchy
 
-Omarchy is a beautiful, modern & opinionated Linux distribution by DHH.
+A fork of Omarchy by DHH but with my configs, no bloat and no web-dev stuff
 
-Read more at [omarchy.org](https://omarchy.org).
-
-## License
-
-Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
+WORK IS IN ACTIVE PROGRESS
