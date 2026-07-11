@@ -16,7 +16,7 @@ start_log_output() {
 
     while true; do
       # Read the last N lines into an array
-      mapfile -t current_lines < <(tail -n $log_lines "$OMARCHY_INSTALL_LOG_FILE" 2>/dev/null)
+      mapfile -t current_lines < <(tail -n $log_lines "$ANARCHY_INSTALL_LOG_FILE" 2>/dev/null)
 
       # Build complete output buffer with escape sequences
       output=""
@@ -53,12 +53,12 @@ stop_log_output() {
 }
 
 start_install_log() {
-  sudo touch "$OMARCHY_INSTALL_LOG_FILE"
-  sudo chmod 666 "$OMARCHY_INSTALL_LOG_FILE"
+  sudo touch "$ANARCHY_INSTALL_LOG_FILE"
+  sudo chmod 666 "$ANARCHY_INSTALL_LOG_FILE"
 
-  export OMARCHY_START_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+  export ANARCHY_START_TIME=$(date '+%Y-%m-%d %H:%M:%S')
 
-  echo "=== Anarchy Installation Started: $OMARCHY_START_TIME ===" >>"$OMARCHY_INSTALL_LOG_FILE"
+  echo "=== Anarchy Installation Started: $ANARCHY_START_TIME ===" >>"$ANARCHY_INSTALL_LOG_FILE"
   start_log_output
 }
 
@@ -66,11 +66,11 @@ stop_install_log() {
   stop_log_output
   show_cursor
 
-  if [[ -n ${OMARCHY_INSTALL_LOG_FILE:-} ]]; then
-    OMARCHY_END_TIME=$(date '+%Y-%m-%d %H:%M:%S')
-    echo "=== Anarchy Installation Completed: $OMARCHY_END_TIME ===" >>"$OMARCHY_INSTALL_LOG_FILE"
-    echo "" >>"$OMARCHY_INSTALL_LOG_FILE"
-    echo "=== Installation Time Summary ===" >>"$OMARCHY_INSTALL_LOG_FILE"
+  if [[ -n ${ANARCHY_INSTALL_LOG_FILE:-} ]]; then
+    ANARCHY_END_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+    echo "=== Anarchy Installation Completed: $ANARCHY_END_TIME ===" >>"$ANARCHY_INSTALL_LOG_FILE"
+    echo "" >>"$ANARCHY_INSTALL_LOG_FILE"
+    echo "=== Installation Time Summary ===" >>"$ANARCHY_INSTALL_LOG_FILE"
 
     if [[ -f "/var/log/archinstall/install.log" ]]; then
       ARCHINSTALL_START=$(grep -m1 '^\[' /var/log/archinstall/install.log 2>/dev/null | sed 's/^\[\([^]]*\)\].*/\1/' || true)
@@ -84,30 +84,30 @@ stop_install_log() {
         ARCH_MINS=$((ARCH_DURATION / 60))
         ARCH_SECS=$((ARCH_DURATION % 60))
 
-        echo "Archinstall: ${ARCH_MINS}m ${ARCH_SECS}s" >>"$OMARCHY_INSTALL_LOG_FILE"
+        echo "Archinstall: ${ARCH_MINS}m ${ARCH_SECS}s" >>"$ANARCHY_INSTALL_LOG_FILE"
       fi
     fi
 
-    if [[ -n $OMARCHY_START_TIME ]]; then
-      OMARCHY_START_EPOCH=$(date -d "$OMARCHY_START_TIME" +%s)
-      OMARCHY_END_EPOCH=$(date -d "$OMARCHY_END_TIME" +%s)
-      OMARCHY_DURATION=$((OMARCHY_END_EPOCH - OMARCHY_START_EPOCH))
+    if [[ -n $ANARCHY_START_TIME ]]; then
+      ANARCHY_START_EPOCH=$(date -d "$ANARCHY_START_TIME" +%s)
+      ANARCHY_END_EPOCH=$(date -d "$ANARCHY_END_TIME" +%s)
+      ANARCHY_DURATION=$((ANARCHY_END_EPOCH - ANARCHY_START_EPOCH))
 
-      OMARCHY_MINS=$((OMARCHY_DURATION / 60))
-      OMARCHY_SECS=$((OMARCHY_DURATION % 60))
+      ANARCHY_MINS=$((ANARCHY_DURATION / 60))
+      ANARCHY_SECS=$((ANARCHY_DURATION % 60))
 
-      echo "Anarchy:     ${OMARCHY_MINS}m ${OMARCHY_SECS}s" >>"$OMARCHY_INSTALL_LOG_FILE"
+      echo "Anarchy:     ${ANARCHY_MINS}m ${ANARCHY_SECS}s" >>"$ANARCHY_INSTALL_LOG_FILE"
 
       if [[ -n $ARCH_DURATION ]]; then
-        TOTAL_DURATION=$((ARCH_DURATION + OMARCHY_DURATION))
+        TOTAL_DURATION=$((ARCH_DURATION + ANARCHY_DURATION))
         TOTAL_MINS=$((TOTAL_DURATION / 60))
         TOTAL_SECS=$((TOTAL_DURATION % 60))
-        echo "Total:       ${TOTAL_MINS}m ${TOTAL_SECS}s" >>"$OMARCHY_INSTALL_LOG_FILE"
+        echo "Total:       ${TOTAL_MINS}m ${TOTAL_SECS}s" >>"$ANARCHY_INSTALL_LOG_FILE"
       fi
     fi
-    echo "=================================" >>"$OMARCHY_INSTALL_LOG_FILE"
+    echo "=================================" >>"$ANARCHY_INSTALL_LOG_FILE"
 
-    echo "Rebooting system..." >>"$OMARCHY_INSTALL_LOG_FILE"
+    echo "Rebooting system..." >>"$ANARCHY_INSTALL_LOG_FILE"
   fi
 }
 
@@ -116,18 +116,18 @@ run_logged() {
 
   export CURRENT_SCRIPT="$script"
 
-  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting: $script" >>"$OMARCHY_INSTALL_LOG_FILE"
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting: $script" >>"$ANARCHY_INSTALL_LOG_FILE"
 
   # Use bash -c to create a clean subshell
-  bash -c "source '$script'" </dev/null >>"$OMARCHY_INSTALL_LOG_FILE" 2>&1
+  bash -c "source '$script'" </dev/null >>"$ANARCHY_INSTALL_LOG_FILE" 2>&1
 
   local exit_code=$?
 
   if (( exit_code == 0 )); then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Completed: $script" >>"$OMARCHY_INSTALL_LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Completed: $script" >>"$ANARCHY_INSTALL_LOG_FILE"
     unset CURRENT_SCRIPT
   else
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Failed: $script (exit code: $exit_code)" >>"$OMARCHY_INSTALL_LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Failed: $script (exit code: $exit_code)" >>"$ANARCHY_INSTALL_LOG_FILE"
   fi
 
   return $exit_code
@@ -142,7 +142,7 @@ run_interactive() {
   stop_log_output
   show_cursor
 
-  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting (interactive): $script" >>"$OMARCHY_INSTALL_LOG_FILE"
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting (interactive): $script" >>"$ANARCHY_INSTALL_LOG_FILE"
 
   # Source the script with the real TTY on stdin/stdout/stderr so gum's TUI
   # renders on the terminal instead of being captured into the log file
@@ -151,10 +151,10 @@ run_interactive() {
   local exit_code=$?
 
   if (( exit_code == 0 )); then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Completed: $script" >>"$OMARCHY_INSTALL_LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Completed: $script" >>"$ANARCHY_INSTALL_LOG_FILE"
     unset CURRENT_SCRIPT
   else
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Failed: $script (exit code: $exit_code)" >>"$OMARCHY_INSTALL_LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Failed: $script (exit code: $exit_code)" >>"$ANARCHY_INSTALL_LOG_FILE"
   fi
 
   # Restore the original screen state (logo + Installing header) so the resumed

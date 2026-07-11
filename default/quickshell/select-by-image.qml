@@ -8,11 +8,11 @@ import QtQuick.Shapes
 ShellRoot {
   id: root
 
-  property string imageDirs: Quickshell.env("OMARCHY_IMAGE_SELECTOR_DIRS") || Quickshell.env("OMARCHY_IMAGE_SELECTOR_DIR") || Quickshell.env("OMARCHY_STOCK_BACKGROUNDS_DIR") || (Quickshell.env("HOME") + "/.config/omarchy/current/theme/backgrounds")
+  property string imageDirs: Quickshell.env("ANARCHY_IMAGE_SELECTOR_DIRS") || Quickshell.env("ANARCHY_IMAGE_SELECTOR_DIR") || Quickshell.env("ANARCHY_STOCK_BACKGROUNDS_DIR") || (Quickshell.env("HOME") + "/.config/omarchy/current/theme/backgrounds")
   property string imageRows: ""
-  property string selectionFile: Quickshell.env("OMARCHY_IMAGE_SELECTOR_SELECTION_FILE") || Quickshell.env("OMARCHY_BACKGROUND_SELECTION_FILE")
-  property string selectedImage: Quickshell.env("OMARCHY_IMAGE_SELECTOR_SELECTED")
-  property string colorsFile: Quickshell.env("OMARCHY_IMAGE_SELECTOR_COLORS_FILE") || (Quickshell.env("HOME") + "/.config/omarchy/current/theme/quickshell.json")
+  property string selectionFile: Quickshell.env("ANARCHY_IMAGE_SELECTOR_SELECTION_FILE") || Quickshell.env("ANARCHY_BACKGROUND_SELECTION_FILE")
+  property string selectedImage: Quickshell.env("ANARCHY_IMAGE_SELECTOR_SELECTED")
+  property string colorsFile: Quickshell.env("ANARCHY_IMAGE_SELECTOR_COLORS_FILE") || (Quickshell.env("HOME") + "/.config/omarchy/current/theme/quickshell.json")
   property int selectedIndex: 0
   property bool imagesLoaded: false
   property bool opened: false
@@ -293,7 +293,7 @@ ShellRoot {
 
   Component.onCompleted: {
     if (selectionFile)
-      openSelector(imageDirs, "", selectedImage, selectionFile, Quickshell.env("OMARCHY_IMAGE_SELECTOR_DONE_FILE"), colorsFile, "", false, false)
+      openSelector(imageDirs, "", selectedImage, selectionFile, Quickshell.env("ANARCHY_IMAGE_SELECTOR_DONE_FILE"), colorsFile, "", false, false)
   }
 
   IpcHandler {

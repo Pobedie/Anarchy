@@ -2,7 +2,7 @@
 
 set -o pipefail
 
-OMARCHY_BIN_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+ANARCHY_BIN_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 METADATA_SCAN_LIMIT=80
 
 COMMAND_KEYS=()
@@ -278,7 +278,7 @@ register_command() {
 load_commands() {
   local file=""
 
-  for file in "$OMARCHY_BIN_DIR"/omarchy-*; do
+  for file in "$ANARCHY_BIN_DIR"/omarchy-*; do
     [[ -f $file && -x $file ]] || continue
     register_command "$file"
   done
@@ -287,7 +287,7 @@ load_commands() {
 
 load_command_by_binary() {
   local binary="$1"
-  local file="$OMARCHY_BIN_DIR/$binary"
+  local file="$ANARCHY_BIN_DIR/$binary"
 
   [[ -f $file && -x $file ]] || return 1
   register_command "$file"
@@ -297,7 +297,7 @@ load_child_commands_by_binary() {
   local binary="$1"
   local file=""
 
-  for file in "$OMARCHY_BIN_DIR/$binary"-*; do
+  for file in "$ANARCHY_BIN_DIR/$binary"-*; do
     [[ -f $file && -x $file ]] || continue
     register_command "$file"
   done
@@ -307,7 +307,7 @@ group_has_child_commands() {
   local group="$1"
   local file=""
 
-  for file in "$OMARCHY_BIN_DIR/omarchy-$group"-*; do
+  for file in "$ANARCHY_BIN_DIR/omarchy-$group"-*; do
     [[ -f $file && -x $file ]] && return 0
   done
 
@@ -317,7 +317,7 @@ group_has_child_commands() {
 group_has_binary_commands() {
   local group="$1"
 
-  [[ -x $OMARCHY_BIN_DIR/omarchy-$group ]] && return 0
+  [[ -x $ANARCHY_BIN_DIR/omarchy-$group ]] && return 0
   group_has_child_commands "$group"
 }
 
@@ -338,11 +338,11 @@ load_group_commands() {
   local group="$1"
   local file=""
 
-  if [[ -f $OMARCHY_BIN_DIR/omarchy-$group && -x $OMARCHY_BIN_DIR/omarchy-$group ]]; then
-    register_command "$OMARCHY_BIN_DIR/omarchy-$group"
+  if [[ -f $ANARCHY_BIN_DIR/omarchy-$group && -x $ANARCHY_BIN_DIR/omarchy-$group ]]; then
+    register_command "$ANARCHY_BIN_DIR/omarchy-$group"
   fi
 
-  for file in "$OMARCHY_BIN_DIR/omarchy-$group"-*; do
+  for file in "$ANARCHY_BIN_DIR/omarchy-$group"-*; do
     [[ -f $file && -x $file ]] || continue
     register_command "$file"
   done
@@ -362,7 +362,7 @@ resolve_direct_route() {
     route="omarchy $(join_words " " "${args[@]:0:prefix_count}")"
 
     binary="omarchy-$(join_words "-" "${args[@]:0:prefix_count}")"
-    candidate="$OMARCHY_BIN_DIR/$binary"
+    candidate="$ANARCHY_BIN_DIR/$binary"
     if [[ -f $candidate && -x $candidate ]]; then
       DIRECT_RESOLVED_BINARY="$binary"
       DIRECT_RESOLVED_COUNT="$prefix_count"
@@ -676,7 +676,7 @@ show_commands_check() {
       done < <(pipe_values_as_lines "${COMMAND_METADATA_ERRORS[$key]}")
     fi
 
-    if [[ ! -x $OMARCHY_BIN_DIR/${COMMAND_BINARY[$key]} ]]; then
+    if [[ ! -x $ANARCHY_BIN_DIR/${COMMAND_BINARY[$key]} ]]; then
       echo "Missing binary: ${COMMAND_BINARY[$key]}" >&2
       failures=$((failures + 1))
     fi
@@ -927,7 +927,7 @@ dispatch_fast_or_help() {
 
   if resolve_direct_route "$#" "${args[@]}"; then
     remaining=("${args[@]:DIRECT_RESOLVED_COUNT}")
-    binary_path="$OMARCHY_BIN_DIR/$DIRECT_RESOLVED_BINARY"
+    binary_path="$ANARCHY_BIN_DIR/$DIRECT_RESOLVED_BINARY"
 
     if (( ${#remaining[@]} > 0 )) && [[ ${remaining[0]} == "--help" || ${remaining[0]} == "-h" ]]; then
       if ! load_command_by_binary "$DIRECT_RESOLVED_BINARY"; then
@@ -1002,7 +1002,7 @@ dispatch_or_help() {
       return 0
     fi
 
-    binary_path="$OMARCHY_BIN_DIR/${COMMAND_BINARY[$key]}"
+    binary_path="$ANARCHY_BIN_DIR/${COMMAND_BINARY[$key]}"
     if [[ ! -x $binary_path ]]; then
       echo "Binary is missing or not executable: ${COMMAND_BINARY[$key]}" >&2
       return 127

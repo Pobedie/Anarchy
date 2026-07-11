@@ -7,8 +7,8 @@
 
 set -euo pipefail
 
-OMARCHY_BIN_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
-OMARCHY_PATH=${OMARCHY_PATH:-$(cd -- "$OMARCHY_BIN_DIR/.." && pwd)}
+ANARCHY_BIN_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+ANARCHY_PATH=${ANARCHY_PATH:-$(cd -- "$ANARCHY_BIN_DIR/.." && pwd)}
 REPEAT=5
 KEEP_CACHE=false
 
@@ -124,31 +124,31 @@ chmod +x "$stub_bin/omarchy-menu-images"
 
 benchmark_env=(
   env
-  "OMARCHY_PATH=$OMARCHY_PATH"
+  "ANARCHY_PATH=$ANARCHY_PATH"
   "XDG_CACHE_HOME=$benchmark_cache"
-  "PATH=$stub_bin:$OMARCHY_BIN_DIR:$PATH"
+  "PATH=$stub_bin:$ANARCHY_BIN_DIR:$PATH"
 )
 
 thumbnail_env=(
   env
-  "OMARCHY_PATH=$OMARCHY_PATH"
+  "ANARCHY_PATH=$ANARCHY_PATH"
   "XDG_CACHE_HOME=$thumbnail_cache"
-  "PATH=$stub_bin:$OMARCHY_BIN_DIR:$PATH"
+  "PATH=$stub_bin:$ANARCHY_BIN_DIR:$PATH"
 )
 
 preview_dir="$benchmark_cache/omarchy/theme-selector/previews"
 thumbnail_preview_dir="$thumbnail_cache/omarchy/theme-selector/previews"
 
 build_theme_index() {
-  "${benchmark_env[@]}" "$OMARCHY_BIN_DIR/omarchy-theme-switcher"
+  "${benchmark_env[@]}" "$ANARCHY_BIN_DIR/omarchy-theme-switcher"
 }
 
 prepare_selector_lazy() {
-  "${benchmark_env[@]}" "$OMARCHY_BIN_DIR/omarchy-menu-images" --prepare-only --lazy-thumbnails --show-labels --filterable "$preview_dir"
+  "${benchmark_env[@]}" "$ANARCHY_BIN_DIR/omarchy-menu-images" --prepare-only --lazy-thumbnails --show-labels --filterable "$preview_dir"
 }
 
 prepare_image_cache() {
-  "${thumbnail_env[@]}" "$OMARCHY_BIN_DIR/omarchy-menu-images" --cache-only "$thumbnail_preview_dir"
+  "${thumbnail_env[@]}" "$ANARCHY_BIN_DIR/omarchy-menu-images" --cache-only "$thumbnail_preview_dir"
 }
 
 printf 'Theme switcher benchmark (%d warm runs each)\n\n' "$REPEAT"
@@ -156,7 +156,7 @@ printf '%-34s %s ms\n' "theme index cold" "$(format_ms "$(measure_once build_the
 run_case "theme index warm" build_theme_index
 printf '%-34s %s ms\n' "selector prep cold (lazy)" "$(format_ms "$(measure_once prepare_selector_lazy)")"
 run_case "selector prep warm (lazy)" prepare_selector_lazy
-"${thumbnail_env[@]}" "$OMARCHY_BIN_DIR/omarchy-theme-switcher" >/dev/null
+"${thumbnail_env[@]}" "$ANARCHY_BIN_DIR/omarchy-theme-switcher" >/dev/null
 printf '%-34s %s ms\n' "thumbnail cache cold" "$(format_ms "$(measure_once prepare_image_cache)")"
 run_case "thumbnail cache warm" prepare_image_cache
 

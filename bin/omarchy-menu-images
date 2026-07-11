@@ -3,7 +3,7 @@
 # omarchy:summary=Open a generic image selector menu
 # omarchy:args=[--selected <image>] [--colors-file <path>] [--print-name] [--show-labels] [--filterable] [--lazy-thumbnails] [--cache-only] <image-dir>...
 
-OMARCHY_PATH=${OMARCHY_PATH:-$HOME/.local/share/omarchy}
+ANARCHY_PATH=${ANARCHY_PATH:-$HOME/.local/share/omarchy}
 
 selected_image=""
 colors_file=""
@@ -84,7 +84,7 @@ done_file=$(mktemp)
 rm -f "$done_file"
 trap 'rm -f "$selection_file" "$done_file"' EXIT
 socket_path="${XDG_RUNTIME_DIR:-/run/user/$UID}/omarchy-image-selector.sock"
-selector_qml="$OMARCHY_PATH/default/quickshell/select-by-image.qml"
+selector_qml="$ANARCHY_PATH/default/quickshell/select-by-image.qml"
 
 image_dirs_env=""
 for dir in "${image_dirs[@]}"; do

@@ -10,7 +10,7 @@ export BROWSER=omarchy-launch-browser
 export EDITOR=nvim
 
 # Use a custom directory for screenshots (remember to make the directory!)
-# export OMARCHY_SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
+# export ANARCHY_SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
 
 # Use a custom directory for screenrecordings (remember to make the directory!)
-# export OMARCHY_SCREENRECORD_DIR="$HOME/Videos/Screencasts"
+# export ANARCHY_SCREENRECORD_DIR="$HOME/Videos/Screencasts"

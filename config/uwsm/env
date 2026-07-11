@@ -1,8 +1,8 @@
 # Changes require a restart to take effect.
 
 # Ensure ANARCHY bins are in the path
-export OMARCHY_PATH=$HOME/.local/share/omarchy
-export PATH=$OMARCHY_PATH/bin:$PATH:$HOME/.local/bin
+export ANARCHY_PATH=$HOME/.local/share/omarchy
+export PATH=$ANARCHY_PATH/bin:$PATH:$HOME/.local/bin
 
 # Set default terminal and editor
 source ~/.config/uwsm/default

@@ -16,9 +16,9 @@ if omarchy-cmd-present alacritty; then
 fi
 
 # Refresh the webapps, TUIs, and npm wrappers
-bash $OMARCHY_PATH/install/packaging/icons.sh
-bash $OMARCHY_PATH/install/packaging/webapps.sh
-bash $OMARCHY_PATH/install/packaging/tuis.sh
-bash $OMARCHY_PATH/install/packaging/npm.sh
+bash $ANARCHY_PATH/install/packaging/icons.sh
+bash $ANARCHY_PATH/install/packaging/webapps.sh
+bash $ANARCHY_PATH/install/packaging/tuis.sh
+bash $ANARCHY_PATH/install/packaging/npm.sh
 
 update-desktop-database ~/.local/share/applications

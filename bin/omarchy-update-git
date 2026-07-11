@@ -12,7 +12,7 @@ omarchy-update-time
 hyprctl keyword debug:suppress_errors true &>/dev/null || true
 hyprctl eval 'hl.config({ debug = { suppress_errors = true } })' &>/dev/null || true
 
-git -C $OMARCHY_PATH pull --autostash
-git -C $OMARCHY_PATH --no-pager diff --check || git -C $OMARCHY_PATH reset --merge
+git -C $ANARCHY_PATH pull --autostash
+git -C $ANARCHY_PATH --no-pager diff --check || git -C $ANARCHY_PATH reset --merge
 
 hyprctl reload &>/dev/null || true

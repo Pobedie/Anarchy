@@ -2,4 +2,4 @@
 
 # omarchy:summary=Print the installed ANARCHY version
 
-cat $OMARCHY_PATH/version
+cat $ANARCHY_PATH/version

@@ -2,4 +2,4 @@
 
 # omarchy:summary=Print the current ANARCHY git branch
 
-echo $(git -C "$OMARCHY_PATH" rev-parse --abbrev-ref HEAD)
+echo $(git -C "$ANARCHY_PATH" rev-parse --abbrev-ref HEAD)

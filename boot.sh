@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set install mode to online since boot.sh is used for curl installations
-export OMARCHY_ONLINE_INSTALL=true
+export ANARCHY_ONLINE_INSTALL=true
 
 ansi_art=`          ▄▄██  ▄▄
        ▄██████  ███████▄    ▄███████   ▄███████   ▄███████   ▄█   █▄    ▄█   █▄
@@ -22,15 +22,15 @@ echo 'Server = https://fastly.mirror.pkgbuild.com/$repo/os/$arch' | sudo tee /et
 
 sudo pacman -Syu --noconfirm --needed git
 
-OMARCHY_REPO="${OMARCHY_REPO:-Pobedie/Anarchy}"
+ANARCHY_REPO="${ANARCHY_REPO:-Pobedie/Anarchy}"
 
-echo -e "\nCloning Anarchy from: https://github.com/${OMARCHY_REPO}.git"
+echo -e "\nCloning Anarchy from: https://github.com/${ANARCHY_REPO}.git"
 rm -rf ~/.local/share/omarchy/
-git clone "https://github.com/${OMARCHY_REPO}.git" ~/.local/share/omarchy >/dev/null
+git clone "https://github.com/${ANARCHY_REPO}.git" ~/.local/share/omarchy >/dev/null
 
-echo -e "\e[32mUsing branch: $OMARCHY_REF\e[0m"
+echo -e "\e[32mUsing branch: $ANARCHY_REF\e[0m"
 cd ~/.local/share/omarchy
-git fetch origin "${OMARCHY_REF}" && git checkout "${OMARCHY_REF}"
+git fetch origin "${ANARCHY_REF}" && git checkout "${ANARCHY_REF}"
 cd -
 
 echo -e "\nInstallation starting..."

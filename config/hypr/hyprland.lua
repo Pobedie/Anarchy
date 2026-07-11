@@ -1,9 +1,9 @@
 -- Learn how to configure Hyprland: https://wiki.hypr.land/Configuring/Start/
 
--- Load user modules from ~/.config and ANARCHY defaults from $OMARCHY_PATH.
+-- Load user modules from ~/.config and ANARCHY defaults from $ANARCHY_PATH.
 package.path = os.getenv("HOME")
     .. "/.config/?.lua;"
-    .. (os.getenv("OMARCHY_PATH") or (os.getenv("HOME") .. "/.local/share/omarchy"))
+    .. (os.getenv("ANARCHY_PATH") or (os.getenv("HOME") .. "/.local/share/omarchy"))
     .. "/?.lua;"
     .. package.path
 

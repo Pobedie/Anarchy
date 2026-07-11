@@ -28,7 +28,7 @@ function GetEntries()
   local entries = {}
   local home = os.getenv("HOME")
   local user_themes_dir = home .. "/.config/omarchy/themes"
-  local omarchy_path = os.getenv("OMARCHY_PATH") or ""
+  local omarchy_path = os.getenv("ANARCHY_PATH") or ""
   local default_themes_dir = omarchy_path .. "/themes"
   local default_preview = omarchy_path .. "/default/plymouth/preview-unlock.png"
 

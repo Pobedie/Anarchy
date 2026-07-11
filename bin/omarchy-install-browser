@@ -16,14 +16,14 @@ announce_browser_installed() {
 
 copy_chromium_flags() {
   mkdir -p ~/.config
-  cp -f "${OMARCHY_PATH:-$HOME/.local/share/omarchy}/config/chromium-flags.conf" "$1"
+  cp -f "${ANARCHY_PATH:-$HOME/.local/share/omarchy}/config/chromium-flags.conf" "$1"
 }
 
 setup_firefox_preferences() {
   local distribution_dir="$1"
 
   setup_policy_directory "$distribution_dir"
-  sudo cp -f "$OMARCHY_PATH/default/firefox/policies.json" "$distribution_dir/policies.json"
+  sudo cp -f "$ANARCHY_PATH/default/firefox/policies.json" "$distribution_dir/policies.json"
 }
 
 setup_firefox_wayland() {

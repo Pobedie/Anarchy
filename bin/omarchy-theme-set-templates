@@ -3,7 +3,7 @@
 # omarchy:summary=Generate themed config files from ANARCHY templates
 # omarchy:hidden=true
 
-TEMPLATES_DIR="$OMARCHY_PATH/default/themed"
+TEMPLATES_DIR="$ANARCHY_PATH/default/themed"
 USER_TEMPLATES_DIR="$HOME/.config/omarchy/themed"
 NEXT_THEME_DIR="$HOME/.config/omarchy/current/next-theme"
 COLORS_FILE="$NEXT_THEME_DIR/colors.toml"
