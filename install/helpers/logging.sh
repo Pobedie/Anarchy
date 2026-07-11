@@ -132,3 +132,39 @@ run_logged() {
 
   return $exit_code
 }
+
+run_interactive() {
+  local script="$1"
+
+  export CURRENT_SCRIPT="$script"
+
+  # Pause the background log monitor so it doesn't fight with gum for the terminal
+  stop_log_output
+  show_cursor
+
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting (interactive): $script" >>"$OMARCHY_INSTALL_LOG_FILE"
+
+  # Source the script with the real TTY on stdin/stdout/stderr so gum's TUI
+  # renders on the terminal instead of being captured into the log file
+  bash -c "source '$script'" </dev/tty
+
+  local exit_code=$?
+
+  if (( exit_code == 0 )); then
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Completed: $script" >>"$OMARCHY_INSTALL_LOG_FILE"
+    unset CURRENT_SCRIPT
+  else
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Failed: $script (exit code: $exit_code)" >>"$OMARCHY_INSTALL_LOG_FILE"
+  fi
+
+  # Restore the original screen state (logo + Installing header) so the resumed
+  # monitor re-anchors its log block at the same position as at startup
+  clear_logo
+  gum style --foreground 3 --padding "1 0 0 $PADDING_LEFT" "Installing..."
+  echo
+
+  # Resume the background log monitor now that the interactive prompt is done
+  start_log_output
+
+  return $exit_code
+}
