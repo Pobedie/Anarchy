@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# anarchy:summary=Show the current weather notification
+
+anarchy-notification-send -g $(anarchy-weather-icon) -u low "$(anarchy-weather-status)"

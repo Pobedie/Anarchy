@@ -1,11 +1,11 @@
 # Changes require a restart to take effect.
 
 # Ensure ANARCHY bins are in the path
-export ANARCHY_PATH=$HOME/.local/share/omarchy
+export ANARCHY_PATH=$HOME/.local/share/anarchy
 export PATH=$ANARCHY_PATH/bin:$PATH:$HOME/.local/bin
 
 # Set default terminal and editor
 source ~/.config/uwsm/default
 
 # Activate mise if present on the system
-omarchy-cmd-present mise && eval "$(mise activate bash --shims)"
+anarchy-cmd-present mise && eval "$(mise activate bash --shims)"

@@ -1,8 +1,8 @@
 -- Require every *.lua file in a directory in sorted order.
 -- Used for ANARCHY extension-style folders such as default/hypr/apps,
--- default/hypr/bindings, and ~/.local/state/omarchy/toggles/hypr.
+-- default/hypr/bindings, and ~/.local/state/anarchy/toggles/hypr.
 -- Pass a module prefix for normal package.path modules, e.g.
---   require_all.files(paths.omarchy_path .. "/default/hypr/apps", "default.hypr.apps")
+--   require_all.files(paths.anarchy_path .. "/default/hypr/apps", "default.hypr.apps")
 -- Pass nil as the prefix when the directory itself has been added to package.path.
 
 local M = {}
@@ -13,7 +13,7 @@ end
 
 function M.files(dir, module_prefix, options)
   local handle = io.popen("find " ..
-  shell_quote(dir) .. " -maxdepth 1 -type f -name '*.lua' -printf '%f\\n' 2>/dev/null | sort")
+    shell_quote(dir) .. " -maxdepth 1 -type f -name '*.lua' -printf '%f\\n' 2>/dev/null | sort")
   if handle then
     for filename in handle:lines() do
       local module = filename:gsub("%.lua$", "")

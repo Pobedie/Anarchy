@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# anarchy:summary=Show current monospace font
+# anarchy:examples=anarchy font current
+
+grep -oP 'font-family:\s*["'\'']?\K[^;"'\'']+' ~/.config/waybar/style.css | head -n1

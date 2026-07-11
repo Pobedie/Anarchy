@@ -1,5 +1,5 @@
-include=~/.local/share/omarchy/default/mako/core.ini
-include=~/.local/state/omarchy/toggles/mako.ini
+include=~/.local/share/anarchy/default/mako/core.ini
+include=~/.local/state/anarchy/toggles/mako.ini
 
 text-color={{ foreground }}
 border-color={{ accent }}

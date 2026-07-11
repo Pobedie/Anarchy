@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# anarchy:summary=Refresh the SDDM theme from default
+# anarchy:requires-sudo=true
+
+sudo rm -rf /usr/share/sddm/themes/anarchy
+sudo cp -r $ANARCHY_PATH/default/sddm/anarchy /usr/share/sddm/themes/anarchy

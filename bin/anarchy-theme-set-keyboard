@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# anarchy:summary=Apply the current theme keyboard color to supported keyboards
+# anarchy:hidden=true
+
+anarchy-theme-set-keyboard-asus-rog
+anarchy-theme-set-keyboard-f16

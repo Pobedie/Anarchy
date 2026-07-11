@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# anarchy:summary=Reload btop configuration (used by the ANARCHY theme switching).
+
+pkill -SIGUSR2 btop

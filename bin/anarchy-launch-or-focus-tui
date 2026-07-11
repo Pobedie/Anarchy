@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# anarchy:summary=Launch a TUI or focus an existing terminal window for it
+# anarchy:args=<command> [args...]
+
+APP_ID="org.anarchy.$(basename "$1")"
+LAUNCH_COMMAND="anarchy-launch-tui $@"
+
+exec anarchy-launch-or-focus "$APP_ID" "$LAUNCH_COMMAND"

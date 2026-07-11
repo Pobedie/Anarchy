@@ -1,5 +1,5 @@
 o.bind("SUPER + W", "Close window", hl.dsp.window.close())
-o.bind("CTRL + ALT + DELETE", "Close all windows", "omarchy-hyprland-window-close-all")
+o.bind("CTRL + ALT + DELETE", "Close all windows", "anarchy-hyprland-window-close-all")
 
 o.bind("SUPER + J", "Toggle window split", hl.dsp.layout("togglesplit"))
 o.bind("SUPER + P", "Pseudo window", hl.dsp.window.pseudo())
@@ -7,8 +7,8 @@ o.bind("SUPER + T", "Toggle window floating/tiling", hl.dsp.window.float({ actio
 o.bind("SUPER + F", "Full screen", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 o.bind("SUPER + CTRL + F", "Tiled full screen", hl.dsp.window.fullscreen_state({ internal = 0, client = 2 }))
 o.bind("SUPER + ALT + F", "Full width", hl.dsp.window.fullscreen({ mode = "maximized" }))
-o.bind("SUPER + O", "Pop window out (float & pin)", "omarchy-hyprland-window-pop")
-o.bind("SUPER + L", "Toggle workspace layout", "omarchy-hyprland-workspace-layout-toggle")
+o.bind("SUPER + O", "Pop window out (float & pin)", "anarchy-hyprland-window-pop")
+o.bind("SUPER + L", "Toggle workspace layout", "anarchy-hyprland-workspace-layout-toggle")
 
 o.bind("SUPER + LEFT", "Focus on left window", hl.dsp.focus({ direction = "l" }))
 o.bind("SUPER + RIGHT", "Focus on right window", hl.dsp.focus({ direction = "r" }))
@@ -18,12 +18,15 @@ o.bind("SUPER + DOWN", "Focus on below window", hl.dsp.focus({ direction = "d" }
 for workspace = 1, 10 do
   local key = "code:" .. tostring(workspace + 9)
   o.bind("SUPER + " .. key, "Switch to workspace " .. workspace, hl.dsp.focus({ workspace = tostring(workspace) }))
-  o.bind("SUPER + SHIFT + " .. key, "Move window to workspace " .. workspace, hl.dsp.window.move({ workspace = tostring(workspace) }))
-  o.bind("SUPER + SHIFT + ALT + " .. key, "Move window silently to workspace " .. workspace, hl.dsp.window.move({ workspace = tostring(workspace), follow = false }))
+  o.bind("SUPER + SHIFT + " .. key, "Move window to workspace " .. workspace,
+    hl.dsp.window.move({ workspace = tostring(workspace) }))
+  o.bind("SUPER + SHIFT + ALT + " .. key, "Move window silently to workspace " .. workspace,
+    hl.dsp.window.move({ workspace = tostring(workspace), follow = false }))
 end
 
 o.bind("SUPER + S", "Toggle scratchpad", hl.dsp.workspace.toggle_special("scratchpad"))
-o.bind("SUPER + ALT + S", "Move window to scratchpad", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
+o.bind("SUPER + ALT + S", "Move window to scratchpad",
+  hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
 
 o.bind("SUPER + TAB", "Next workspace", hl.dsp.focus({ workspace = "e+1" }))
 o.bind("SUPER + SHIFT + TAB", "Previous workspace", hl.dsp.focus({ workspace = "e-1" }))
@@ -54,13 +57,17 @@ o.bind("SUPER + SHIFT + code:21", "Expand window down", hl.dsp.window.resize({ x
 
 o.bind("SUPER + ALT + code:20", "Expand window left a little", hl.dsp.window.resize({ x = -25, y = 0, relative = true }))
 o.bind("SUPER + ALT + code:21", "Shrink window left a little", hl.dsp.window.resize({ x = 25, y = 0, relative = true }))
-o.bind("SUPER + SHIFT + ALT + code:20", "Shrink window up a little", hl.dsp.window.resize({ x = 0, y = -25, relative = true }))
-o.bind("SUPER + SHIFT + ALT + code:21", "Expand window down a little", hl.dsp.window.resize({ x = 0, y = 25, relative = true }))
+o.bind("SUPER + SHIFT + ALT + code:20", "Shrink window up a little",
+  hl.dsp.window.resize({ x = 0, y = -25, relative = true }))
+o.bind("SUPER + SHIFT + ALT + code:21", "Expand window down a little",
+  hl.dsp.window.resize({ x = 0, y = 25, relative = true }))
 
 o.bind("SUPER + CTRL + code:20", "Expand window left a lot", hl.dsp.window.resize({ x = -300, y = 0, relative = true }))
 o.bind("SUPER + CTRL + code:21", "Shrink window left a lot", hl.dsp.window.resize({ x = 300, y = 0, relative = true }))
-o.bind("SUPER + CTRL + SHIFT + code:20", "Shrink window up a lot", hl.dsp.window.resize({ x = 0, y = -300, relative = true }))
-o.bind("SUPER + CTRL + SHIFT + code:21", "Expand window down a lot", hl.dsp.window.resize({ x = 0, y = 300, relative = true }))
+o.bind("SUPER + CTRL + SHIFT + code:20", "Shrink window up a lot",
+  hl.dsp.window.resize({ x = 0, y = -300, relative = true }))
+o.bind("SUPER + CTRL + SHIFT + code:21", "Expand window down a lot",
+  hl.dsp.window.resize({ x = 0, y = 300, relative = true }))
 
 o.bind("SUPER + mouse_down", "Scroll active workspace forward", hl.dsp.focus({ workspace = "e+1" }))
 o.bind("SUPER + mouse_up", "Scroll active workspace backward", hl.dsp.focus({ workspace = "e-1" }))
@@ -86,8 +93,9 @@ o.bind("SUPER + ALT + mouse_down", "Next window in group", hl.dsp.group.next())
 o.bind("SUPER + ALT + mouse_up", "Previous window in group", hl.dsp.group.prev())
 
 for index = 1, 5 do
-  o.bind("SUPER + ALT + code:" .. tostring(index + 9), "Switch to group window " .. index, hl.dsp.group.active({ index = index }))
+  o.bind("SUPER + ALT + code:" .. tostring(index + 9), "Switch to group window " .. index,
+    hl.dsp.group.active({ index = index }))
 end
 
-o.bind("SUPER + code:61", "Cycle monitor scaling", "omarchy-hyprland-monitor-scaling-cycle")
-o.bind("SUPER + ALT + code:61", "Cycle monitor scaling backwards", "omarchy-hyprland-monitor-scaling-cycle --reverse")
+o.bind("SUPER + code:61", "Cycle monitor scaling", "anarchy-hyprland-monitor-scaling-cycle")
+o.bind("SUPER + ALT + code:61", "Cycle monitor scaling backwards", "anarchy-hyprland-monitor-scaling-cycle --reverse")

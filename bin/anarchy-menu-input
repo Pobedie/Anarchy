@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# anarchy:summary=Prompt for text input with Walker
+# anarchy:group=menu
+# anarchy:name=input
+# anarchy:args=prompt [walker args...]
+# anarchy:examples=anarchy menu input Reminder|anarchy-menu-input "Reminder in minutes" --width 400
+
+set -euo pipefail
+
+prompt="${1:-Input}"
+if (( $# > 0 )); then
+  shift
+fi
+
+anarchy-launch-walker --dmenu --inputonly --width 295 --minheight 1 --maxheight 1 -p "$prompt…" "$@" 2>/dev/null

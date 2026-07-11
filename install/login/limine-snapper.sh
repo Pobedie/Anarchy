@@ -1,7 +1,7 @@
 if command -v limine &>/dev/null; then
   # Determine if encryption hook should be included based on installation choice
   ENCRYPTION_HOOK=""
-  if [[ -f /tmp/omarchy_encryption_mode ]] && [[ "$(cat /tmp/omarchy_encryption_mode)" == "Encrypted" ]]; then
+  if [[ -f /tmp/anarchy_encryption_mode ]] && [[ "$(cat /tmp/anarchy_encryption_mode)" == "Encrypted" ]]; then
     ENCRYPTION_HOOK="encrypt"
   fi
 

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# anarchy:summary=Detect ASUS Zenbook UX5406AA series laptops on Intel Panther Lake.
+
+anarchy-hw-match "ux5406aa" && anarchy-hw-intel-ptl

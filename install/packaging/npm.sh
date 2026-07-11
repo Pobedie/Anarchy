@@ -1,1 +1,1 @@
-omarchy-npm-install @kitlangton/ghui ghui
+anarchy-npm-install @kitlangton/ghui ghui

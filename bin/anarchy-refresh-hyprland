@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# anarchy:summary=Overwrite all the user Hyprland Lua configs in ~/.config/hypr with the ANARCHY defaults.
+
+anarchy-refresh-config hypr/.luarc.json
+anarchy-refresh-config hypr/autostart.lua
+anarchy-refresh-config hypr/bindings.lua
+anarchy-refresh-config hypr/input.lua
+anarchy-refresh-config hypr/looknfeel.lua
+anarchy-refresh-config hypr/hyprland.lua
+anarchy-refresh-config hypr/monitors.lua
+bash "$ANARCHY_PATH/install/config/anarchy-toggles.sh"
+bash "$ANARCHY_PATH/install/config/detect-keyboard-layout.sh"

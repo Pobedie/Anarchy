@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# anarchy:summary=Set or toggle shape of Hyprland window corners
+# anarchy:args=[toggle|sharp|round]
+# anarchy:examples=anarchy style corners hyprland toggle | anarchy style corners hyprland round | anarchy style corners hyprland sharp
+
+case "${1:-toggle}" in
+  round) set -- on ;;
+  sharp) set -- off ;;
+  toggle) ;;
+  *)
+    echo "Usage: anarchy-style-corners-hyprland [toggle|sharp|round]"
+    exit 1
+    ;;
+esac
+
+anarchy-hyprland-toggle rounded-corners "$1"

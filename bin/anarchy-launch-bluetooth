@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# anarchy:summary=Launch the ANARCHY bluetooth controls TUI (provided by bluetui).
+
+rfkill unblock bluetooth
+exec anarchy-launch-or-focus-tui bluetui

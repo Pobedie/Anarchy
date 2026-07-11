@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# anarchy:summary=Install Zed Editor and configure it with the current ANARCHY theme
+
+echo "Installing Zed Editor..."
+anarchy-pkg-add zed omazed
+
+# Apply ANARCHY theme to Zed
+omazed setup
+
+setsid gtk-launch dev.zed.Zed

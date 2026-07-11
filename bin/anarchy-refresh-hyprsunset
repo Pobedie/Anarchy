@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# anarchy:summary=Overwrite the user config for hyprsunset with the ANARCHY default and restart the service.
+
+anarchy-refresh-config hypr/hyprsunset.conf
+anarchy-restart-hyprsunset

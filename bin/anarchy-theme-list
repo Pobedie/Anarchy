@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# anarchy:summary=List available themes
+# anarchy:examples=anarchy theme list | anarchy theme set "Tokyo Night"
+
+{
+  find ~/.config/anarchy/themes/ -mindepth 1 -maxdepth 1 \( -type d -o -type l \) -printf '%f\n'
+  find "$ANARCHY_PATH/themes/" -mindepth 1 -maxdepth 1 -type d -printf '%f\n'
+} | sort -u | while read -r name; do
+  echo "$name" | sed -E 's/(^|-)([a-z])/\1\u\2/g; s/-/ /g'
+done

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# anarchy:summary=Restart the hyprsunset service (used for blue light filtering/night light).
+
+anarchy-restart-app hyprsunset

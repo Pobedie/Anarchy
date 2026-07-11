@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# anarchy:summary=Toggle single-window square aspect ratio.
+
+case $(anarchy-hyprland-toggle single-window-aspect-ratio) in
+  on) anarchy-notification-send -g  "Enable single-window square aspect ratio" ;;
+  off) anarchy-notification-send -g  "Disable single-window square aspect ratio" ;;
+esac

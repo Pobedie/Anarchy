@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# anarchy:summary=Apply the current theme keyboard color to ASUS ROG keyboards
+# anarchy:hidden=true
+
+ASUSCTL_THEME=~/.config/anarchy/current/theme/keyboard.rgb
+
+if anarchy-cmd-present asusctl; then
+  asusctl aura effect static -c $(sed 's/^#//' $ASUSCTL_THEME)
+fi

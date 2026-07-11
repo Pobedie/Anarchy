@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# anarchy:summary=Show the current battery status notification
+
+anarchy-notification-send -g 󰁹 -u low "$(anarchy-battery-status)"

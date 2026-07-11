@@ -3,12 +3,12 @@
 -- Load user modules from ~/.config and ANARCHY defaults from $ANARCHY_PATH.
 package.path = os.getenv("HOME")
     .. "/.config/?.lua;"
-    .. (os.getenv("ANARCHY_PATH") or (os.getenv("HOME") .. "/.local/share/omarchy"))
+    .. (os.getenv("ANARCHY_PATH") or (os.getenv("HOME") .. "/.local/share/anarchy"))
     .. "/?.lua;"
     .. package.path
 
 -- All ANARCHY default setups
-require("default.hypr.omarchy")
+require("default.hypr.anarchy")
 
 -- Change your own setup in these files and override defaults.
 require("hypr.monitors")

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# anarchy:summary=Shut down after closing application windows
+# anarchy:examples=anarchy shutdown | anarchy system shutdown
+# anarchy:aliases=anarchy shutdown
+
+anarchy-state clear re*-required
+
+# Schedule the shutdown to happen after closing windows (detached from terminal)
+nohup bash -c "sleep 2 && systemctl poweroff --no-wall" >/dev/null 2>&1 &
+
+# Now close all windows
+anarchy-hyprland-window-close-all
+sleep 1 # Allow apps like Chrome to shutdown correctly

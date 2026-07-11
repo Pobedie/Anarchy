@@ -21,11 +21,11 @@ Target = elephant*
 [Action]
 Description = Restarting Walker services after system update
 When = PostTransaction
-Exec = $ANARCHY_PATH/bin/omarchy-restart-walker
+Exec = $ANARCHY_PATH/bin/anarchy-restart-walker
 EOF
 
 # Link the visual theme menu config
 mkdir -p ~/.config/elephant/menus
-ln -snf $ANARCHY_PATH/default/elephant/omarchy_themes.lua ~/.config/elephant/menus/omarchy_themes.lua
-ln -snf $ANARCHY_PATH/default/elephant/omarchy_background_selector.lua ~/.config/elephant/menus/omarchy_background_selector.lua
-ln -snf $ANARCHY_PATH/default/elephant/omarchy_unlocks.lua ~/.config/elephant/menus/omarchy_unlocks.lua
+ln -snf $ANARCHY_PATH/default/elephant/anarchy_themes.lua ~/.config/elephant/menus/anarchy_themes.lua
+ln -snf $ANARCHY_PATH/default/elephant/anarchy_background_selector.lua ~/.config/elephant/menus/anarchy_background_selector.lua
+ln -snf $ANARCHY_PATH/default/elephant/anarchy_unlocks.lua ~/.config/elephant/menus/anarchy_unlocks.lua

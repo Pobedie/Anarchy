@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# anarchy:summary=Edit, set, or reset About branding
+# anarchy:group=branding
+# anarchy:name=about
+# anarchy:args=<image|text|reset>
+# anarchy:examples=anarchy branding about image | anarchy branding about text | anarchy branding about reset
+
+set -euo pipefail
+
+SOURCE_DIR="${XDG_PICTURES_DIR:-$HOME/Pictures}"
+
+case "${1:-}" in
+image)
+  image=$(anarchy-menu-file "Pick png/svg from $SOURCE_DIR" "${SOURCE_DIR}" "svg png")
+  if [[ -n $image ]] && anarchy-transcode-ascii "$image" ~/.config/anarchy/branding/about.txt --width 54 --height 26; then
+    anarchy-launch-about >/dev/null 2>&1
+  fi
+  ;;
+text)
+  anarchy-launch-editor ~/.config/anarchy/branding/about.txt >/dev/null 2>&1 && anarchy-launch-about >/dev/null 2>&1
+  ;;
+reset)
+  cp "$ANARCHY_PATH/icon.txt" ~/.config/anarchy/branding/about.txt && anarchy-launch-about >/dev/null 2>&1
+  ;;
+*)
+  echo "Usage: anarchy-branding-about <image|text|reset>" >&2
+  exit 1
+  ;;
+esac

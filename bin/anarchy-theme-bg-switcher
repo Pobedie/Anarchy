@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# anarchy:summary=Open the ANARCHY background switcher
+# anarchy:group=theme
+# anarchy:name=bg-switcher
+# anarchy:aliases=anarchy background
+
+ANARCHY_PATH=${ANARCHY_PATH:-$HOME/.local/share/anarchy}
+theme_name=$(cat "$HOME/.config/anarchy/current/theme.name" 2>/dev/null)
+current_background=$(readlink -f "$HOME/.config/anarchy/current/background" 2>/dev/null)
+
+anarchy-menu-images \
+  --selected "$current_background" \
+  "$HOME/.config/anarchy/current/theme/backgrounds" \
+  "$HOME/.config/anarchy/backgrounds/$theme_name"

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# anarchy:summary=Overwrite the user config for the Plymouth drive decryption and boot sequence with the ANARCHY default and rebuild it.
+# anarchy:requires-sudo=true
+
+sudo cp -r ~/.local/share/anarchy/default/plymouth/* /usr/share/plymouth/themes/anarchy/
+sudo plymouth-set-default-theme anarchy
+
+if command -v limine-mkinitcpio &>/dev/null; then
+  sudo limine-mkinitcpio
+else
+  sudo mkinitcpio -P
+fi

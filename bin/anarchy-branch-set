@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# anarchy:summary=Set the branch for ANARCHY's git repository.
+# anarchy:args=<master|rc|dev>
+
+if (($# == 0)); then
+  echo "Usage: anarchy-branch-set [master|rc|dev]"
+  exit 1
+else
+  branch="$1"
+fi
+
+if [[ $branch != "master" && $branch != "rc" && $branch != "dev" ]]; then
+  echo "Error: Invalid branch '$branch'. Must be one of: master, rc, dev"
+  exit 1
+fi
+
+git -C $ANARCHY_PATH switch $branch

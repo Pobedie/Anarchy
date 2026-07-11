@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# anarchy:summary=Toggle screensaver availability
+
+anarchy-toggle \
+  --enabled-notification "󱄄   Screensaver disabled" \
+  --disabled-notification "󱄄   Screensaver enabled" \
+  screensaver-off

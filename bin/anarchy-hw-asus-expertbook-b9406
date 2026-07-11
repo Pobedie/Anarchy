@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# anarchy:summary=Detect ASUS ExpertBook B9406 series laptops on Intel Panther Lake.
+
+anarchy-hw-match "B9406" && anarchy-hw-intel-ptl

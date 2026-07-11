@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# anarchy:summary=Reinstall the stable ANARCHY source directory from git
+
+set -e
+
+# Reinstall the ANARCHY configuration directory from the git source.
+
+git clone --depth=1 --branch master "https://github.com/basecamp/anarchy.git" ~/.local/share/anarchy-new >/dev/null
+mv $ANARCHY_PATH ~/.local/share/anarchy-old
+mv ~/.local/share/anarchy-new $ANARCHY_PATH

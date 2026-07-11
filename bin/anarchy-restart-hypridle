@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# anarchy:summary=Restart the hypridle service (used for idle detection and auto-lock).
+
+anarchy-restart-app hypridle

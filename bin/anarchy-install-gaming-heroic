@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# anarchy:summary=Install Heroic Games Launcher (Epic, GOG, Amazon Prime Gaming) with graphics drivers.
+# anarchy:requires-sudo=true
+
+set -e
+
+echo "Installing Heroic Games Launcher..."
+anarchy-pkg-add heroic-games-launcher-bin
+anarchy-install-gaming-gpu-lib32
+
+setsid gtk-launch heroic >/dev/null 2>&1 &

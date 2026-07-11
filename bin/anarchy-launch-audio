@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# anarchy:summary=Launch the ANARCHY audio controls TUI (provided by wiremix).
+
+anarchy-launch-or-focus-tui wiremix

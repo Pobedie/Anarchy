@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# anarchy:summary=Set Hyprland, Hyprlock, Mako, and Walker corners to sharp or round
+# anarchy:args=<sharp|round>
+# anarchy:examples=anarchy style corners round | anarchy style corners sharp
+
+if [[ $1 != "sharp" && $1 != "round" ]]; then
+  echo "Usage: anarchy-style-corners <sharp|round>"
+  exit 1
+fi
+
+anarchy-style-corners-hyprland "$1"
+anarchy-style-corners-hyprlock "$1"
+anarchy-style-corners-mako "$1"
+anarchy-style-corners-walker "$1"
+
+case $1 in
+  sharp) anarchy-notification-send "Sharp corners enabled" -g 󰝣 ;;
+  round) anarchy-notification-send "Round corners enabled" -g 󰘇 ;;
+esac

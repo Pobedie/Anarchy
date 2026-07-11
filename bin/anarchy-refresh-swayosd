@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# anarchy:summary=Overwrite the user configs for swayosd (controls on-screen feedback for changing volume/songs etc) with the ANARCHY defaults and restart the service.
+
+anarchy-refresh-config swayosd/config.toml
+anarchy-refresh-config swayosd/style.css
+anarchy-restart-swayosd

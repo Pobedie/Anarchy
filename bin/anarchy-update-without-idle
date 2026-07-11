@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# anarchy:summary=No-op now that anarchy-update-perform is responsible for idle management.
+# anarchy:hidden=true

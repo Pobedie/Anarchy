@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# anarchy:summary=Toggle Waybar visibility
+# anarchy:examples=anarchy toggle waybar
+
+anarchy-toggle waybar-off
+
+if pgrep -x waybar >/dev/null; then
+  pkill -x waybar
+else
+  uwsm-app -- waybar >/dev/null 2>&1 &
+fi

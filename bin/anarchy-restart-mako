@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# anarchy:summary=Reload mako configuration (used by the ANARCHY theme switching).
+
+makoctl reload

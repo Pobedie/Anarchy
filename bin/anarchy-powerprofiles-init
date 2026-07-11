@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# anarchy:summary=Set the correct power profile on boot based on current AC/battery state.
+
+if anarchy-battery-present && ! anarchy-ac-present; then
+  anarchy-powerprofiles-set battery
+else
+  anarchy-powerprofiles-set ac
+fi

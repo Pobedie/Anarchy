@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# anarchy:summary=Print the current ANARCHY git branch
+
+echo $(git -C "$ANARCHY_PATH" rev-parse --abbrev-ref HEAD)

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# anarchy:summary=Cache background switcher thumbnails for the current theme
+
+theme_name=$(cat "$HOME/.config/anarchy/current/theme.name" 2>/dev/null)
+
+anarchy-menu-images \
+  --cache-only \
+  "$HOME/.config/anarchy/current/theme/backgrounds" \
+  "$HOME/.config/anarchy/backgrounds/$theme_name"

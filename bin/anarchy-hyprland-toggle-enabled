@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# anarchy:summary=Check if a Hyprland toggle is currently enabled.
+# anarchy:args=<flag-name>
+
+[[ -f "$HOME/.local/state/anarchy/toggles/hypr/$1.lua" ]]

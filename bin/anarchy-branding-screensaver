@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# anarchy:summary=Edit, set, or reset screensaver branding
+# anarchy:group=branding
+# anarchy:name=screensaver
+# anarchy:args=<image|text|reset>
+# anarchy:examples=anarchy branding screensaver image | anarchy branding screensaver text | anarchy branding screensaver reset
+
+set -euo pipefail
+
+SOURCE_DIR="${XDG_PICTURES_DIR:-$HOME/Pictures}"
+
+case "${1:-}" in
+image)
+  image=$(anarchy-menu-file "Pick png/svg from $SOURCE_DIR" "${SOURCE_DIR}" "svg png")
+  if [[ -n $image ]] && anarchy-transcode-ascii "$image" ~/.config/anarchy/branding/screensaver.txt; then
+    anarchy-launch-screensaver force >/dev/null 2>&1
+  fi
+  ;;
+text)
+  anarchy-launch-editor ~/.config/anarchy/branding/screensaver.txt >/dev/null 2>&1 && anarchy-launch-screensaver force >/dev/null 2>&1
+  ;;
+reset)
+  cp "$ANARCHY_PATH/logo.txt" ~/.config/anarchy/branding/screensaver.txt && anarchy-launch-screensaver force >/dev/null 2>&1
+  ;;
+*)
+  echo "Usage: anarchy-branding-screensaver <image|text|reset>" >&2
+  exit 1
+  ;;
+esac

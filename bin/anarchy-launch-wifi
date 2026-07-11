@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# anarchy:summary=Launch the ANARCHY wifi controls (provided by the Impala TUI).
+
+rfkill unblock wifi
+anarchy-launch-or-focus-tui impala

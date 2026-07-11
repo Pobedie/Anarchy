@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# anarchy:summary=Launch a floating terminal with the ANARCHY presentation wrapper
+# anarchy:args=<command>
+
+cmd="$*"
+exec setsid uwsm-app -- xdg-terminal-exec --app-id=org.anarchy.terminal --title=ANARCHY -e bash -c "anarchy-show-logo; $cmd; if (( \$? != 130 )); then anarchy-show-done; fi"
