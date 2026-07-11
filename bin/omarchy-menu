@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# omarchy:summary=Launch the Omarchy Menu or takes a parameter to jump straight to a submenu.
+# omarchy:summary=Launch the ANARCHY Menu or takes a parameter to jump straight to a submenu.
 
 # Set to true when going directly to a submenu, so we can exit directly
 BACK_TO_EXIT=false
@@ -86,10 +86,10 @@ aur_install_and_launch() {
 }
 
 show_learn_menu() {
-  case $(menu "Learn" "  Keybindings\n  Tmux keybindings\n  Omarchy\n  Hyprland\n󰣇  Arch\n  Neovim\n󱆃  Bash") in
+  case $(menu "Learn" "  Keybindings\n  Tmux keybindings\n  ANARCHY\n  Hyprland\n󰣇  Arch\n  Neovim\n󱆃  Bash") in
   *Tmux*) omarchy-menu-tmux-keybindings ;;
   *Keybindings*) omarchy-menu-keybindings ;;
-  *Omarchy*) omarchy-launch-webapp "https://learn.omacom.io/2/the-omarchy-manual" ;;
+  *ANARCHY*) omarchy-launch-webapp "https://learn.omacom.io/2/the-omarchy-manual" ;;
   *Hyprland*) omarchy-launch-webapp "https://wiki.hypr.land/" ;;
   *Arch*) omarchy-launch-webapp "https://wiki.archlinux.org/title/Main_page" ;;
   *Bash*) omarchy-launch-webapp "https://devhints.io/bash" ;;
@@ -784,8 +784,8 @@ show_remove_elixir_menu() {
 }
 
 show_update_menu() {
-  case $(menu "Update" "  Omarchy\n󰔫  Channel\n  Config\n󰸌  Extra Themes\n  Process\n󰇅  Hardware\n  Firmware\n  Password\n  Timezone\n  Time") in
-  *Omarchy*) present_terminal omarchy-update ;;
+  case $(menu "Update" "  ANARCHY\n󰔫  Channel\n  Config\n󰸌  Extra Themes\n  Process\n󰇅  Hardware\n  Firmware\n  Password\n  Timezone\n  Time") in
+  *ANARCHY*) present_terminal omarchy-update ;;
   *Channel*) show_update_channel_menu ;;
   *Config*) show_update_config_menu ;;
   *Themes*) present_terminal omarchy-theme-update ;;

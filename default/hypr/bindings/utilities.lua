@@ -3,8 +3,8 @@ o.bind("SUPER + CTRL + E", "Emoji picker", { omarchy = "walker -m symbols" })
 o.bind_menu("SUPER + CTRL + C", "Capture menu", "capture")
 o.bind_menu("SUPER + CTRL + O", "Toggle menu", "toggle")
 o.bind_menu("SUPER + CTRL + H", "Hardware menu", "hardware")
-o.bind_menu("SUPER + ALT + SPACE", "Omarchy menu", nil)
-o.bind_menu("SUPER + SHIFT + code:201", "Omarchy menu", nil)
+o.bind_menu("SUPER + ALT + SPACE", "ANARCHY menu", nil)
+o.bind_menu("SUPER + SHIFT + code:201", "ANARCHY menu", nil)
 o.bind_menu("SUPER + ESCAPE", "System menu", "system")
 o.bind_menu("XF86PowerOff", "Power menu", "system", { locked = true })
 o.bind("SUPER + K", "Show key bindings", "omarchy-menu-keybindings")
@@ -20,7 +20,8 @@ o.bind_menu("SUPER + CTRL + SPACE", "Background switcher", "background")
 o.bind_menu("SUPER + SHIFT + CTRL + SPACE", "Theme menu", "theme")
 o.bind("SUPER + BACKSPACE", "Toggle window transparency", "omarchy-hyprland-window-transparency-toggle")
 o.bind("SUPER + SHIFT + BACKSPACE", "Toggle window gaps", "omarchy-hyprland-window-gaps-toggle")
-o.bind("SUPER + CTRL + BACKSPACE", "Toggle single-window square aspect", "omarchy-hyprland-window-single-square-aspect-toggle")
+o.bind("SUPER + CTRL + BACKSPACE", "Toggle single-window square aspect",
+  "omarchy-hyprland-window-single-square-aspect-toggle")
 
 o.bind("SUPER + COMMA", "Dismiss last notification", "makoctl dismiss")
 o.bind("SUPER + SHIFT + COMMA", "Dismiss all notifications", "makoctl dismiss --all")
@@ -31,8 +32,10 @@ o.bind("SUPER + SHIFT + ALT + COMMA", "Restore last notification", "makoctl rest
 o.bind_toggle("SUPER + CTRL + I", "Toggle locking on idle", "idle")
 o.bind_toggle("SUPER + CTRL + N", "Toggle nightlight", "nightlight")
 o.bind("SUPER + CTRL + Delete", "Toggle laptop display", "omarchy-hyprland-monitor-internal toggle")
-o.bind("SUPER + CTRL + ALT + Delete", "Toggle laptop display mirroring", "omarchy-hyprland-monitor-internal-mirror toggle")
-o.bind("switch:on:Lid Switch", nil, "omarchy-hw-external-monitors && omarchy-hyprland-monitor-internal off", { locked = true })
+o.bind("SUPER + CTRL + ALT + Delete", "Toggle laptop display mirroring",
+  "omarchy-hyprland-monitor-internal-mirror toggle")
+o.bind("switch:on:Lid Switch", nil, "omarchy-hw-external-monitors && omarchy-hyprland-monitor-internal off",
+  { locked = true })
 o.bind("switch:off:Lid Switch", nil, "omarchy-hyprland-monitor-internal on", { locked = true })
 
 o.bind("PRINT", "Screenshot", "omarchy-capture-screenshot")

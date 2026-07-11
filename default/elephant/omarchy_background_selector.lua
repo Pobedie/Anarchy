@@ -1,5 +1,5 @@
 Name = "omarchyBackgroundSelector"
-NamePretty = "Omarchy Background Selector"
+NamePretty = "ANARCHY Background Selector"
 Cache = false
 HideFromProviderlist = true
 SearchName = true
@@ -47,7 +47,8 @@ function GetEntries()
   for _, background_dir in ipairs(dirs) do
     local handle = io.popen(
       "find -L " .. ShellEscape(background_dir)
-        .. " -maxdepth 1 -type f \\( -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' -o -name '*.gif' -o -name '*.bmp' -o -name '*.webp' \\) 2>/dev/null | sort"
+      ..
+      " -maxdepth 1 -type f \\( -name '*.jpg' -o -name '*.jpeg' -o -name '*.png' -o -name '*.gif' -o -name '*.bmp' -o -name '*.webp' \\) 2>/dev/null | sort"
     )
     if handle then
       for background in handle:lines() do

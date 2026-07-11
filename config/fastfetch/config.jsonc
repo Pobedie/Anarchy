@@ -7,150 +7,150 @@
     "padding": {
       "top": 2,
       "right": 6,
-      "left": 2
-    }
+      "left": 2,
+    },
   },
   "modules": [
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
+      "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐",
     },
     {
       "type": "host",
       "key": " PC",
-      "keyColor": "green"
+      "keyColor": "green",
     },
     {
       "type": "cpu",
       "key": "│ ├",
       "showPeCoreCount": true,
-      "keyColor": "green"
+      "keyColor": "green",
     },
     {
       "type": "gpu",
       "key": "│ ├",
       "detectionMethod": "pci",
-      "keyColor": "green"
+      "keyColor": "green",
     },
     {
       "type": "display",
       "key": "│ ├󱄄",
-      "keyColor": "green"
+      "keyColor": "green",
     },
     {
       "type": "disk",
       "key": "│ ├󰋊",
-      "keyColor": "green"
+      "keyColor": "green",
     },
     {
       "type": "memory",
       "key": "│ ├",
-      "keyColor": "green"
+      "keyColor": "green",
     },
     {
       "type": "swap",
       "key": "└ └󰓡 ",
-      "keyColor": "green"
+      "keyColor": "green",
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[90m└────────────────────────────────────────────────────┘",
     },
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
+      "format": "\u001b[90m┌──────────────────────Software──────────────────────┐",
     },
     {
       "type": "command",
       "key": "\ue900 OS",
       "keyColor": "blue",
-      "text": "version=$(omarchy-version); echo \"Omarchy $version\""
+      "text": "version=$(omarchy-version); echo \"ANARCHY $version\"",
     },
     {
       "type": "command",
       "key": "│ ├󰘬",
       "keyColor": "blue",
-      "text": "branch=$(omarchy-version-branch); echo \"$branch\""
+      "text": "branch=$(omarchy-version-branch); echo \"$branch\"",
     },
     {
       "type": "command",
       "key": "│ ├󰔫",
       "keyColor": "blue",
-      "text": "channel=$(omarchy-version-channel); echo \"$channel\""
+      "text": "channel=$(omarchy-version-channel); echo \"$channel\"",
     },
     {
       "type": "kernel",
       "key": "│ ├",
-      "keyColor": "blue"
+      "keyColor": "blue",
     },
     {
       "type": "wm",
       "key": "│ ├",
-      "keyColor": "blue"
+      "keyColor": "blue",
     },
     {
       "type": "de",
       "key": " DE",
-      "keyColor": "blue"
+      "keyColor": "blue",
     },
     {
       "type": "terminal",
       "key": "│ ├",
-      "keyColor": "blue"
+      "keyColor": "blue",
     },
     {
       "type": "packages",
       "key": "│ ├󰏖",
-      "keyColor": "blue"
+      "keyColor": "blue",
     },
     {
       "type": "wmtheme",
       "key": "│ ├󰉼",
-      "keyColor": "blue"
+      "keyColor": "blue",
     },
     {
       "type": "command",
       "key": "│ ├󰸌",
       "keyColor": "blue",
-      "text": "theme=$(omarchy-theme-current); echo -e \"$theme \\e[38m●\\e[37m●\\e[36m●\\e[35m●\\e[34m●\\e[33m●\\e[32m●\\e[31m●\""
+      "text": "theme=$(omarchy-theme-current); echo -e \"$theme \\e[38m●\\e[37m●\\e[36m●\\e[35m●\\e[34m●\\e[33m●\\e[32m●\\e[31m●\"",
     },
     {
       "type": "terminalfont",
       "key": "└ └",
-      "keyColor": "blue"
+      "keyColor": "blue",
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[90m└────────────────────────────────────────────────────┘",
     },
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌────────────────Age / Uptime / Update───────────────┐"
+      "format": "\u001b[90m┌────────────────Age / Uptime / Update───────────────┐",
     },
     {
       "type": "command",
       "key": "󱦟 OS Age",
       "keyColor": "magenta",
-      "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
+      "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days",
     },
     {
       "type": "uptime",
       "key": "󱫐 Uptime",
-      "keyColor": "magenta"
+      "keyColor": "magenta",
     },
     {
       "type": "command",
       "key": " Update",
       "keyColor": "magenta",
-      "text": "updated=$(omarchy-version-pkgs); echo \"$updated\""
+      "text": "updated=$(omarchy-version-pkgs); echo \"$updated\"",
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[90m└────────────────────────────────────────────────────┘",
     },
-    "break"
-  ]
+    "break",
+  ],
 }

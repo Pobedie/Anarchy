@@ -1,8 +1,8 @@
 --
--- Dynamic Omarchy Theme Menu for Elephant/Walker
+-- Dynamic ANARCHY Theme Menu for Elephant/Walker
 --
 Name = "omarchythemes"
-NamePretty = "Omarchy Themes"
+NamePretty = "ANARCHY Themes"
 HideFromProviderlist = true
 
 -- Check if file exists using Lua (no subprocess)
@@ -63,7 +63,7 @@ function GetEntries()
         -- Check the theme dir, then fall back to the default theme dir
         -- (for partial user customizations that don't ship a preview)
         local preview_path = find_preview_path(theme_path)
-          or find_preview_path(default_theme_dir .. "/" .. theme_name)
+            or find_preview_path(default_theme_dir .. "/" .. theme_name)
 
         if preview_path and preview_path ~= "" then
           local display_name = theme_name:gsub("_", " "):gsub("%-", " ")

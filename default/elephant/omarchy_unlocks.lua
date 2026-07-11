@@ -1,5 +1,5 @@
 --
--- Dynamic Omarchy Unlocks Menu for Elephant/Walker
+-- Dynamic ANARCHY Unlocks Menu for Elephant/Walker
 --
 -- A "Default" entry restores the omarchy-shipped Plymouth via
 -- omarchy-plymouth-reset. After that, every theme that has a preview-unlock.png
@@ -7,7 +7,7 @@
 -- <theme>. Both run in a floating terminal so sudo can prompt.
 --
 Name = "omarchyunlocks"
-NamePretty = "Omarchy Unlocks"
+NamePretty = "ANARCHY Unlocks"
 HideFromProviderlist = true
 FixedOrder = true
 
@@ -61,7 +61,7 @@ function GetEntries()
             PreviewType = "file",
             Actions = {
               activate = "omarchy-launch-floating-terminal-with-presentation "
-                .. shell_escape("omarchy-plymouth-set-by-theme " .. shell_escape(theme_name)),
+                  .. shell_escape("omarchy-plymouth-set-by-theme " .. shell_escape(theme_name)),
             },
           })
         end
@@ -79,7 +79,7 @@ function GetEntries()
     Text = "Default  ",
     Actions = {
       activate = "omarchy-launch-floating-terminal-with-presentation "
-        .. shell_escape("omarchy-plymouth-reset"),
+          .. shell_escape("omarchy-plymouth-reset"),
     },
   }
   if file_exists(default_preview) then

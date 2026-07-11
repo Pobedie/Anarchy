@@ -1,8 +1,8 @@
--- Omarchy Hyprland setup: helpers, defaults, and current theme overrides.
+-- ANARCHY Hyprland setup: helpers, defaults, and current theme overrides.
 
 require("default.hypr.helpers")
 
--- Use Omarchy defaults, but don't edit these directly.
+-- Use ANARCHY defaults, but don't edit these directly.
 require("default.hypr.autostart")
 require("default.hypr.bindings.media")
 require("default.hypr.bindings.clipboard")
