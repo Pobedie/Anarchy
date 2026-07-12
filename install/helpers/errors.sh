@@ -12,11 +12,11 @@ show_cursor() {
 
 # Display truncated log lines from the install log
 show_log_tail() {
-  if [[ -f $Anarchy_INSTALL_LOG_FILE ]]; then
+  if [[ -f $ANARCHY_INSTALL_LOG_FILE ]]; then
     local log_lines=$((TERM_HEIGHT - LOGO_HEIGHT - 35))
     local max_line_width=$((LOGO_WIDTH - 4))
 
-    tail -n $log_lines "$Anarchy_INSTALL_LOG_FILE" | while IFS= read -r line; do
+    tail -n $log_lines "$ANARCHY_INSTALL_LOG_FILE" | while IFS= read -r line; do
       if ((${#line} > max_line_width)); then
         local truncated_line="${line:0:$max_line_width}..."
       else
@@ -115,9 +115,9 @@ catch_errors() {
       ;;
     "View full log")
       if command -v less &>/dev/null; then
-        less "$Anarchy_INSTALL_LOG_FILE"
+        less "$ANARCHY_INSTALL_LOG_FILE"
       else
-        tail "$Anarchy_INSTALL_LOG_FILE"
+        tail "$ANARCHY_INSTALL_LOG_FILE"
       fi
       ;;
     "Upload log for support")
