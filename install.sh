@@ -5,6 +5,7 @@ set -eEo pipefail
 
 # Define ANARCHY locations
 export ANARCHY_REPO="$HOME/.local/share/anarchy"
+export ANARCHY_PATH=$HOME/.local/share/anarchy
 export ANARCHY_INSTALL="$ANARCHY_REPO/install"
 export ANARCHY_INSTALL_LOG_FILE="/var/log/anarchy-install.log"
 export PATH="$ANARCHY_REPO/bin:$PATH"
